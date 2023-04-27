@@ -1,0 +1,123 @@
+import java.util.*;
+class project
+{	
+public static void main(String args[])
+{
+	char r;
+	do
+	{
+System.out.println("**Library Management System*");
+System.out.println("Press 1 to add book");
+System.out.println("press 2 to issue book");
+System.out.println("press 3 to return book");
+System.out.println("press 4 to print complete issue details");
+System.out.println("press 5 to exit");	
+Scanner obj=new Scanner(System.in);
+System.out.println("Enter choice");
+int choice =obj.nextInt();
+switch(choice)
+{
+case 1:
+Library aa=new Library();
+aa.add();
+break;
+case 2:
+Library bb=new Library();
+bb.issue();
+break;
+case 3:
+Library cc=new Library();
+cc.returnbook();
+break;
+case 4:
+Library dd=new Library();
+dd.detail();
+break;
+case 5:
+Library ee=new Library();
+ee.exit();
+break;
+default:
+System.out.println("Invalid Choice");
+}
+System.out.println(" You wamt to select next option");
+r=obj.next().charAt(0);
+}while(r=='y'||r=='Y');
+if(r=='N'||r=='n')
+{
+Library z=new Library();
+z.exit();
+}
+}
+}
+
+class Library
+{
+static String str;
+static int a,b,c,date;
+void add()
+{
+System.out.println("Enter book name,Prize and Book no");
+Scanner obj=new Scanner(System.in);
+String str=obj.nextLine();
+System.out.println("Enter book price");
+float price=obj.nextInt();
+System.out.println("Enter book no");
+int bookno=obj.nextInt();
+System.out.println("Your Details"+str +price+bookno);	
+}
+void issue()
+{
+Scanner obj=new Scanner(System.in);
+System.out.println("Book Name");
+str=obj.nextLine();
+System.out.println("Book id");
+a=obj.nextInt();
+obj.nextLine();
+System.out.println("Issue Date");
+b=obj.nextInt();
+System.out.println("Total issued");
+c=obj.nextInt();
+System.out.println("return date");
+date=obj.nextInt();
+}
+int getid()
+{
+return a;		
+}
+void returnbook()
+{
+System.out.println("Enter student name and id");
+Scanner obj=new Scanner(System.in);
+String stdname=obj.nextLine();
+int bookid=obj.nextInt();
+if(a==bookid)
+{
+System.out.println("Total Details");
+System.out.println("Book Name  :"+Library.str);
+System.out.println("book id  :"+Library.a);
+System.out.println("issue date  :"+Library.b);
+System.out.println("Total number of books issued  :"+Library.c);
+System.out.println("Book return Date :"+Library.date);
+}
+else
+{
+System.out.println("Wrong id please verify");
+}
+}	
+void detail()
+{
+System.out.println("Total Details");
+System.out.println("Book Name"+Library.str);
+System.out.println("book id"+Library.a);
+System.out.println("issue date"+Library.b);
+System.out.println("Total number of books issued"+Library.c);
+System.out.println("Book return Date"+Library.date);
+	
+}
+void exit()
+{
+System.exit(0);	
+	
+}	
+}
